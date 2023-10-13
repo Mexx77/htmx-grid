@@ -1,0 +1,14 @@
+.grid
+  each col in grid
+    .column
+      header
+        include col-name.pug
+      .sortable
+        input(type='hidden' name='flatGrid' value=`col--${col.id}`)
+        each tile in col.tiles
+          figure.expandable-tile
+            input(type='hidden' name='flatGrid' value=tile.name)
+            i.fa(class=tile.iconClass style=`color: ${tile.iconColor}`)
+            .text-wrap
+              h3 #{tile.name}
+              span #{tile.desc}
